@@ -15,6 +15,14 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light", "dark", "nord", {
+      synthwave: {
+        ...require("daisyui/src/theming/themes")["synthwave"],
+        primary: "#6E8898",
+      }
+    }],
+  },
 };
 export default config;
