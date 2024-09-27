@@ -1,2 +1,0 @@
-# NoteJar
-A Pastebin clone.
