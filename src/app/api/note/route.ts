@@ -1,9 +1,20 @@
 import { db } from "@/lib/firebase/config";
-import { collection, addDoc, getDoc, doc, deleteDoc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDoc,
+  doc,
+  deleteDoc,
+  Timestamp,
+} from "firebase/firestore";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   const noteToPost = await request.json();
+  noteToPost.expirationTimestamp = new Timestamp(
+    noteToPost.expirationTimestamp.seconds,
+    noteToPost.expirationTimestamp.nanoseconds
+  );
   try {
     const docref = await addDoc(collection(db, `notes`), noteToPost);
 

@@ -1,19 +1,25 @@
 # NoteJar
 
-This is a Pastebin clone with just the essential features to make use of the app. It allows you to set a password as well as allow strangers to delete your note! The "Keep longer" feature doesn't work because I couldn't set up a TTL mechanism in Firestore without upgrading.
+This is a Pastebin-like web app with just the essential features to make use of the app. It allows you to set a password, and lets your friends delete your note! You can also choose to keep your note for up to 60 days. (This feature does not use Firestore TTL.)
 
-I have tried my best to make use of the features of Next.js, although there are most definitely plenty of newbie mistakes.
+# Resources used
+
+- **DaisyUI** for UI components.
+- **Firebase** to store notes.
+- **[SVG Repo](https://www.svgrepo.com/)** for button icons.
+
+# Screenshots
 
 Below are some screenshots of this app.
 
-# Homepage
+## Homepage
 
 ![Home](./Screenshots/Home.png)
 
-# Password Verification
+## Password Verification
 
 ![Password](./Screenshots/PasswordVerification.png)
 
-# Note
+## Note
 
 ![Note](./Screenshots/Note.png)

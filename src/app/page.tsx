@@ -39,9 +39,8 @@ export default function Home() {
             <SettingsCheckbox
               label="Keep longer"
               name="keep"
-              disabled
               tooltip
-              tooltipText="By default, notes are only kept for 30 days."
+              tooltipText="By default, notes are only kept for 30 days. This option will keep notes for 60 days."
             />
             <SettingsCheckbox
               label="Allow delete"

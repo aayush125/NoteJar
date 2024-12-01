@@ -7,9 +7,8 @@ export default function CopyButton({ note }: { note: string }) {
   const [copyText, setCopyText] = useState("Copy");
 
   const handleClick = () => {
-    setCopyText("Copied");
     navigator.clipboard.writeText(note);
-    console.log("Copied text");
+    setCopyText("Copied");
 
     setTimeout(() => {
       setCopyText("Copy");

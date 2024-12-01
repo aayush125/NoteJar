@@ -1,3 +1,5 @@
+import { Timestamp } from "firebase/firestore";
+
 export interface Note {
   title: string;
   note: string;
@@ -5,6 +7,7 @@ export interface Note {
   nickname: string;
   keep: boolean;
   allow_delete: boolean;
+  expirationTimestamp?: Timestamp;
 }
 
 export interface NoteData {

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/firebase/config";
 import { getDoc, doc } from "firebase/firestore";
+import { compare_passes } from "@/lib/passwHashing";
 
 export async function POST(request: NextRequest) {
   const data = await request.json();
@@ -12,7 +13,10 @@ export async function POST(request: NextRequest) {
 
   if (docSnap.exists()) {
     if (docSnap.data().password) {
-      let verified: boolean = docSnap.data().password === password;
+      let verified: boolean = await compare_passes(
+        password,
+        docSnap.data().password
+      );
       if (verified) {
         return NextResponse.json({
           success: true,

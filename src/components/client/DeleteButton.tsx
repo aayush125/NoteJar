@@ -12,7 +12,6 @@ export default function DeleteButton({ noteId }: { noteId: string }) {
 
   async function handleNoteDelete(noteId: string) {
     const res = await deleteNote(noteId);
-    console.log(res);
     if (res?.success) {
       setDeleting(false);
       router.push("/");
