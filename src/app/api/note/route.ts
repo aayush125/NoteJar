@@ -46,9 +46,18 @@ export async function GET(request: NextRequest) {
   }
 
   const docRef = doc(db, "notes", noteId);
-  const docSnap = await getDoc(docRef);
 
-  if (docSnap.exists()) {
+  let docSnap;
+  try {
+    docSnap = await getDoc(docRef);
+  } catch (error) {
+    return NextResponse.json({
+      success: false,
+      message: "Database internal error.",
+    });
+  }
+
+  if (docSnap?.exists()) {
     if (docSnap.data().password) {
       return NextResponse.json({ password_required: true });
     } else {
